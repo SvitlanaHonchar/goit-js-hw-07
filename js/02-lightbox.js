@@ -19,6 +19,10 @@ galleryWholeEl.insertAdjacentHTML("beforeend", creatingGallery);
 // ---/створення розмітки
 
 // ---створення події
+var lightbox = new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionDelay: 250,
+});
 
 function onGalleryImgClick(e) {
   e.preventDefault();
@@ -26,10 +30,6 @@ function onGalleryImgClick(e) {
   if (target.nodeName !== "IMG") {
     return;
   }
-  var lightbox = new SimpleLightbox(".gallery a", {
-    captionsData: "alt",
-    captionDelay: 250,
-  });
 
   //   console.log(target.alt);
 }
