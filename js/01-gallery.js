@@ -43,18 +43,18 @@ function onGalleryImgClick(e) {
   }
 
   // return target.dataset.source;
-  origImgEl.show();
+  origImgEl.show(() => {
+    document.addEventListener("keydown", onEscKeyDown);
+
+    function onEscKeyDown(e) {
+      if (e.code === "Escape") {
+        origImgEl.close();
+      }
+    }
+  });
   const modalImgEl = document.querySelector(".modal img");
   modalImgEl.src = target.dataset.source;
 }
 
-function onEscKeyDown(e) {
-  if (e.code === "Escape") {
-    origImgEl.close();
-  }
-}
-
 galleryWholeEl.addEventListener("click", onGalleryImgClick);
-document.addEventListener("keydown", onEscKeyDown);
-
 // ---/створення події
